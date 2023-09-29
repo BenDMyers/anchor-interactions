@@ -15,7 +15,9 @@ const nothing = 'Nothing';
 const openContextMenu = 'Open context menu';
 const openInCurrentTab = 'Open in current tab';
 const openNewTab = 'Open new tab and show';
+const openNewWindow = 'Open new window';
 const openBackgroundTab = 'Open tab in background';
+const replaceAddressBarContents = 'Replace address bar contents';
 
 /** @type {InteractionRecord[]} */
 const interactions = [
@@ -44,7 +46,8 @@ const interactions = [
 			[firefox]: nothing,
 			[safari]: downloadTargetPage,
 			[edge]: downloadTargetPage
-		}
+		},
+		abnormal: [firefox]
 	},
 	{
 		interaction: [command, click],
@@ -54,6 +57,92 @@ const interactions = [
 			[safari]: openBackgroundTab,
 			[edge]: openBackgroundTab
 		},
+	},
+	{
+		interaction: [shift, click],
+		browsers: {
+			[chrome]: openNewWindow,
+			[firefox]: openNewWindow,
+			[safari]: 'Save target to reading list',
+			[edge]: openNewWindow
+		},
+		abnormal: [safari]
+	},
+	{
+		interaction: [control, shift, click],
+		browsers: {
+			[chrome]: openContextMenu,
+			[firefox]: openContextMenu,
+			[safari]: openContextMenu,
+			[edge]: openContextMenu
+		}
+	},
+	{
+		interaction: [command, shift, click],
+		browsers: {
+			[chrome]: openNewTab,
+			[firefox]: openNewTab,
+			[safari]: openNewTab,
+			[edge]: openNewTab
+		}
+	},
+	{
+		interaction: [control, enter],
+		browsers: {
+			[chrome]: openInCurrentTab,
+			[firefox]: nothing,
+			[safari]: openInCurrentTab,
+			[edge]: openInCurrentTab
+		},
+		abnormal: [firefox]
+	},
+	{
+		interaction: [option, enter],
+		browsers: {
+			[chrome]: downloadTargetPage,
+			[firefox]: nothing,
+			[safari]: downloadTargetPage,
+			[edge]: downloadTargetPage
+		},
+		abnormal: [firefox]
+	},
+	{
+		interaction: [command, enter],
+		browsers: {
+			[chrome]: openBackgroundTab,
+			[firefox]: openBackgroundTab,
+			[safari]: openBackgroundTab,
+			[edge]: openBackgroundTab
+		}
+	},
+	{
+		interaction: [shift, '<kbd>F10</kbd>'],
+		browsers: {
+			[chrome]: nothing,
+			[firefox]: nothing,
+			[safari]: nothing,
+			[edge]: openContextMenu
+		},
+		abnormal: [edge]
+	},
+	{
+		interaction: ['Dragging to address bar'],
+		browsers: {
+			[chrome]: replaceAddressBarContents,
+			[firefox]: openInCurrentTab,
+			[safari]: openInCurrentTab,
+			[edge]: replaceAddressBarContents
+		}
+	},
+	{
+		interaction: ['Dragging to tab bar'],
+		browsers: {
+			[chrome]: openNewTab,
+			[firefox]: openBackgroundTab,
+			[safari]: 'Navigate existing tab to target',
+			[edge]: openNewTab
+		},
+		abnormal: [safari]
 	}
 ];
 
@@ -81,4 +170,5 @@ module.exports = {
  * @typedef {object} InteractionRecord
  * @property {string[]} interaction
  * @property {BrowserMap} browsers
+ * @property {string[]?} abnormal
  */

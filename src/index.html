@@ -29,7 +29,13 @@
 							{{ interaction.interaction | join: '+' }}
 						</th>
 						{% for browser in macos.browserHeadings %}
-						<td>{{ interaction.browsers[browser] }}</td>
+						{% assign abnormal = false %}
+						{% if interaction.abnormal and interaction.abnormal contains browser %}
+						{% assign abnormal = true %}
+						{% endif %}
+						<td {% if abnormal %}class="abnormal"{% endif %}>
+							{{ interaction.browsers[browser] }} {% if abnormal %}<span class="visually-hidden">(deviates)</span>{% endif %}
+						</td>
 						{% endfor %}
 					</tr>
 					{% endfor %}

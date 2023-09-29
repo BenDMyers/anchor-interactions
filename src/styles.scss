@@ -1,19 +1,41 @@
 @import "https://unpkg.com/open-props";
 
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0); 
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap; 
+	width: 1px;
+}
+
 :root {
 	--page-bg: var(--gray-2);
+	--zebra-bg: var(--blue-1);
 	--page-text: var(--gray-9);
-	--shortcut-text: var(--choco-3);
+	--shortcut-text: var(--choco-6);
 	--table-border-color: var(--gray-5);
 	--table-header-color: var(--blue-3);
 	--row-hover-color: var(--gray-3);
+	--abnormal-cell-color: var(--red-3);
 
 	@media (prefers-color-scheme: dark) {
 		--page-bg: var(--gray-9);
+		--zebra-bg: #272C31;
 		--page-text: var(--gray-1);
-		--table-border-color: var(--gray-6);
+		--shortcut-text: var(--choco-3);
+		--table-border-color: var(--gray-7);
 		--table-header-color: var(--violet-12);
 		--row-hover-color: var(--gray-8);
+		--abnormal-cell-color: var(--pink-12);
+
+		tr:hover {
+			--abnormal-cell-color: var(--pink-11);
+		}
 	}
 
 	--table-border: 1px solid var(--table-border-color);
@@ -55,6 +77,11 @@ table {
 		border: var(--table-border);
 		padding-block: var(--size-fluid-1);
 		padding-inline: var(--size-fluid-1);
+
+		&.abnormal {
+			background-color: var(--abnormal-cell-color);
+			font-style: italic;
+		}
 	}
 
 	thead th {
@@ -62,6 +89,10 @@ table {
 	}
 
 	tr {
+		&:nth-child(even) {
+			background-color: var(--zebra-bg);
+		}
+
 		&:hover {
 			background-color: var(--row-hover-color);
 		}
