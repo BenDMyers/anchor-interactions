@@ -4,6 +4,7 @@ const control = '<kbd>Ctrl</kbd>';
 const enter = '<kbd>Enter</kbd>';
 const middleClick = '<code>Middle Click</code>';
 const option = '<kbd>Opt</kbd>';
+const rightClick = '<code>Right Click</code>';
 const shift = '<kbd>Shift</kbd>';
 
 const chrome = 'Chrome';
@@ -67,6 +68,15 @@ const interactions = [
 			[safari]: openBackgroundTab,
 			[edge]: openBackgroundTab
 		},
+	},
+	{
+		interaction: [rightClick],
+		browsers: {
+			[chrome]: openContextMenu,
+			[firefox]: openContextMenu,
+			[safari]: openContextMenu,
+			[edge]: openContextMenu
+		}
 	},
 	{
 		interaction: [shift, click],

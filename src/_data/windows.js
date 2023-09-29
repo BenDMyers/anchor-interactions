@@ -3,6 +3,7 @@ const click = '<code>Click</code>';
 const control = '<kbd>Ctrl</kbd>';
 const enter = '<kbd>Enter</kbd>';
 const middleClick = '<code>Middle Click</code>'
+const rightClick = '<code>Right Click</code>'
 const shift = '<kbd>Shift</kbd>';
 const win = '<kbd>Win</kbd>';
 
@@ -35,6 +36,14 @@ const interactions = [
 			[chrome]: openBackgroundTab,
 			[firefox]: openBackgroundTab,
 			[edge]: openBackgroundTab
+		}
+	},
+	{
+		interaction: [rightClick],
+		browsers: {
+			[chrome]: openContextMenu,
+			[firefox]: openContextMenu,
+			[edge]: openContextMenu
 		}
 	},
 	{
