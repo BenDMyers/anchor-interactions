@@ -84,6 +84,12 @@ table {
 	width: 100%;
 	// overflow-x: auto;
 
+	caption {
+		font-size: var(--font-size-3);
+		margin-block-end: var(--size-fluid-1);
+		font-weight: 700;
+	}
+
 	th, td {
 		border: var(--table-border);
 		padding-block: var(--size-fluid-1);
