@@ -1,7 +1,8 @@
 const click = '<code>Click</code>';
 const command = '<kbd>Cmd</kbd>';
-const enter = '<kbd>Enter</kbd>';
 const control = '<kbd>Ctrl</kbd>';
+const enter = '<kbd>Enter</kbd>';
+const middleClick = '<code>Middle Click</code>';
 const option = '<kbd>Opt</kbd>';
 const shift = '<kbd>Shift</kbd>';
 
@@ -28,6 +29,15 @@ const interactions = [
 			[firefox]: openInCurrentTab,
 			[safari]: openInCurrentTab,
 			[edge]: openInCurrentTab
+		}
+	},
+	{
+		interaction: [middleClick],
+		browsers: {
+			[chrome]: openBackgroundTab,
+			[firefox]: openBackgroundTab,
+			[safari]: openBackgroundTab,
+			[edge]: openBackgroundTab
 		}
 	},
 	{
