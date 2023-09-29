@@ -9,6 +9,9 @@ const kbd = require('markdown-it-kbd');
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(sass);
 	eleventyConfig.amendLibrary('md', md => md.use(kbd));
+
+	const encodedUri = encodeURIComponent('https://anchor-interactions.netlify.app/')
+	eleventyConfig.addGlobalData('openGraphImage', `https://v1.screenshot.11ty.dev/${encodedUri}/opengraph/`);
 	
 	return {
 		dir: {
