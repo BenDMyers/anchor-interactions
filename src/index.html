@@ -21,39 +21,6 @@
 		</div>
 	</header>
 	<main>
-		<section id="macos" aria-labelledby="macos-caption">
-			<div class="wrapper">
-				<table>
-					<caption id="macos-caption">macOS Browsers</caption>
-					<thead>
-						<tr>
-							<th scope="col">Interaction</th>
-							{% for browser in macos.browserHeadings %}
-							<th scope="col">{{ browser }}</th>
-							{% endfor %}
-						</tr>
-					</thead>
-					<tbody>
-						{% for interaction in macos.interactions %}
-						<tr>
-							<th scope="row">
-								{{ interaction.interaction | join: '+' }}
-							</th>
-							{% for browser in macos.browserHeadings %}
-							{% assign abnormal = false %}
-							{% if interaction.abnormal and interaction.abnormal contains browser %}
-							{% assign abnormal = true %}
-							{% endif %}
-							<td {% if abnormal %}class="abnormal"{% endif %}>
-								{{ interaction.browsers[browser] }} {% if abnormal %}<span class="visually-hidden">(deviates)</span>{% endif %}
-							</td>
-							{% endfor %}
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			</div>
-		</section>
 		<section id="windows" aria-labelledby="windows-caption">
 			<div class="wrapper">
 				<table>
@@ -73,6 +40,39 @@
 								{{ interaction.interaction | join: '+' }}
 							</th>
 							{% for browser in windows.browserHeadings %}
+							{% assign abnormal = false %}
+							{% if interaction.abnormal and interaction.abnormal contains browser %}
+							{% assign abnormal = true %}
+							{% endif %}
+							<td {% if abnormal %}class="abnormal"{% endif %}>
+								{{ interaction.browsers[browser] }} {% if abnormal %}<span class="visually-hidden">(deviates)</span>{% endif %}
+							</td>
+							{% endfor %}
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<section id="macos" aria-labelledby="macos-caption">
+			<div class="wrapper">
+				<table>
+					<caption id="macos-caption">macOS Browsers</caption>
+					<thead>
+						<tr>
+							<th scope="col">Interaction</th>
+							{% for browser in macos.browserHeadings %}
+							<th scope="col">{{ browser }}</th>
+							{% endfor %}
+						</tr>
+					</thead>
+					<tbody>
+						{% for interaction in macos.interactions %}
+						<tr>
+							<th scope="row">
+								{{ interaction.interaction | join: '+' }}
+							</th>
+							{% for browser in macos.browserHeadings %}
 							{% assign abnormal = false %}
 							{% if interaction.abnormal and interaction.abnormal contains browser %}
 							{% assign abnormal = true %}
