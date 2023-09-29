@@ -14,14 +14,14 @@
 }
 
 :root {
-	--page-bg: var(--indigo-2);
+	--page-bg: var(--indigo-1);
 	--zebra-bg-odd: var(--indigo-0);
 	--zebra-bg-even: var(--indigo-1);
 	--page-text: var(--gray-9);
 	--shortcut-text: var(--choco-6);
-	--table-border-color: var(--gray-5);
-	--table-header-color: var(--blue-3);
-	--row-hover-color: var(--indigo-3);
+	--table-border-color: var(--indigo-2);
+	--table-header-color: var(--indigo-3);
+	--row-hover-color: var(--indigo-2);
 	--abnormal-cell-color: var(--red-3);
 
 	@media (prefers-color-scheme: dark) {
