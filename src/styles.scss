@@ -14,8 +14,9 @@
 }
 
 :root {
-	--page-bg: var(--gray-2);
-	--zebra-bg: var(--blue-1);
+	--page-bg: var(--indigo-2);
+	--zebra-bg-odd: var(--indigo-0);
+	--zebra-bg-even: var(--indigo-1);
 	--page-text: var(--gray-9);
 	--shortcut-text: var(--choco-6);
 	--table-border-color: var(--gray-5);
@@ -25,7 +26,8 @@
 
 	@media (prefers-color-scheme: dark) {
 		--page-bg: var(--gray-9);
-		--zebra-bg: #272C31;
+		--zebra-bg-even: var(--gray-9);
+		--zebra-bg-odd: #272C31;
 		--page-text: var(--gray-1);
 		--shortcut-text: var(--choco-3);
 		--table-border-color: var(--gray-7);
@@ -79,6 +81,7 @@ kbd, code {
 }
 
 table {
+	background-color: var(--zebra-bg-odd);
 	border-collapse: collapse;
 	border: var(--table-border);
 	width: 100%;
@@ -107,7 +110,7 @@ table {
 
 	tr {
 		&:nth-child(even) {
-			background-color: var(--zebra-bg);
+			background-color: var(--zebra-bg-even);
 		}
 
 		&:hover {
