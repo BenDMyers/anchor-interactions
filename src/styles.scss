@@ -1,0 +1,69 @@
+@import "https://unpkg.com/open-props";
+
+:root {
+	--page-bg: var(--gray-2);
+	--page-text: var(--gray-9);
+	--shortcut-text: var(--choco-3);
+	--table-border-color: var(--gray-5);
+	--table-header-color: var(--blue-3);
+	--row-hover-color: var(--gray-3);
+
+	@media (prefers-color-scheme: dark) {
+		--page-bg: var(--gray-9);
+		--page-text: var(--gray-1);
+		--table-border-color: var(--gray-6);
+		--table-header-color: var(--violet-12);
+		--row-hover-color: var(--gray-8);
+	}
+
+	--table-border: 1px solid var(--table-border-color);
+	background-color: var(--page-bg);
+	color: var(--page-text);
+	color-scheme: dark light;
+}
+
+body {
+	font-family: var(--font-sans);
+}
+
+header {
+	// max-inline-size: var(--size-content-3);
+	text-align: center;
+	margin-inline: auto;
+}
+
+main {
+	margin-inline: auto;
+	// max-inline-size: var(--size-content-3);
+}
+
+kbd {
+	color: var(--shortcut-text);
+}
+
+kbd, code {
+	font-family: var(--font-mono);
+	margin-inline: var(--size-1);
+}
+
+table {
+	border-collapse: collapse;
+	border: var(--table-border);
+	width: 100%;
+
+	th, td {
+		border: var(--table-border);
+		padding-block: var(--size-fluid-1);
+		padding-inline: var(--size-fluid-1);
+	}
+
+	thead th {
+		background-color: var(--table-header-color);
+	}
+
+	tr {
+		&:hover {
+			background-color: var(--row-hover-color);
+		}
+	}
+}

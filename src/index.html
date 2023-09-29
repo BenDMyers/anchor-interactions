@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Anchor Tag Interactions Across Browsers</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+		<h1>Anchor Tag Interactions Across Browsers</h1>
+	</header>
+	<main>
+		<section id="macos" aria-labelledby="macos-caption">
+			<table>
+				<caption id="macos-caption">macOS Browsers</caption>
+				<thead>
+					<tr>
+						<th scope="col">Interaction</th>
+						{% for browser in macos.browserHeadings %}
+						<th scope="col">{{ browser }}</th>
+						{% endfor %}
+					</tr>
+				</thead>
+				<tbody>
+					{% for interaction in macos.interactions %}
+					<tr>
+						<th scope="row">
+							{{ interaction.interaction | join: '+' }}
+						</th>
+						{% for browser in macos.browserHeadings %}
+						<td>{{ interaction.browsers[browser] }}</td>
+						{% endfor %}
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</section>
+	</main>
+</body>
+</html>
