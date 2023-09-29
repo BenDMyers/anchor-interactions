@@ -1,16 +1,13 @@
 const alt = '<kbd>Alt</kbd>';
 const click = '<code>Click</code>';
-const command = '<kbd>Cmd</kbd>';
 const enter = '<kbd>Enter</kbd>';
 const control = '<kbd>Ctrl</kbd>';
-const option = '<kbd>Opt</kbd>';
 const shift = '<kbd>Shift</kbd>';
 const win = '<kbd>Win</kbd>';
 
 const chrome = 'Chrome';
 const edge = 'Edge';
 const firefox = 'Firefox';
-const safari = 'Safari';
 
 const downloadTargetPage = 'Download target page';
 const nothing = 'Nothing';
@@ -107,101 +104,6 @@ const interactions = [
 			[edge]: openContextMenu
 		}
 	},
-	// {
-	// 	interaction: [control, click],
-	// 	browsers: {
-	// 		[chrome]: openContextMenu,
-	// 		[firefox]: openContextMenu,
-	// 		[safari]: openContextMenu,
-	// 		[edge]: openContextMenu
-	// 	}
-	// },
-	// {
-	// 	interaction: [option, click],
-	// 	browsers: {
-	// 		[chrome]: downloadTargetPage,
-	// 		[firefox]: nothing,
-	// 		[safari]: downloadTargetPage,
-	// 		[edge]: downloadTargetPage
-	// 	},
-	// 	abnormal: [firefox]
-	// },
-	// {
-	// 	interaction: [command, click],
-	// 	browsers: {
-	// 		[chrome]: openBackgroundTab,
-	// 		[firefox]: openBackgroundTab,
-	// 		[safari]: openBackgroundTab,
-	// 		[edge]: openBackgroundTab
-	// 	},
-	// },
-	// {
-	// 	interaction: [shift, click],
-	// 	browsers: {
-	// 		[chrome]: openNewWindow,
-	// 		[firefox]: openNewWindow,
-	// 		[safari]: 'Save target to reading list',
-	// 		[edge]: openNewWindow
-	// 	},
-	// 	abnormal: [safari]
-	// },
-	// {
-	// 	interaction: [control, shift, click],
-	// 	browsers: {
-	// 		[chrome]: openContextMenu,
-	// 		[firefox]: openContextMenu,
-	// 		[safari]: openContextMenu,
-	// 		[edge]: openContextMenu
-	// 	}
-	// },
-	// {
-	// 	interaction: [command, shift, click],
-	// 	browsers: {
-	// 		[chrome]: openNewTab,
-	// 		[firefox]: openNewTab,
-	// 		[safari]: openNewTab,
-	// 		[edge]: openNewTab
-	// 	}
-	// },
-	// {
-	// 	interaction: [control, enter],
-	// 	browsers: {
-	// 		[chrome]: openInCurrentTab,
-	// 		[firefox]: nothing,
-	// 		[safari]: openInCurrentTab,
-	// 		[edge]: openInCurrentTab
-	// 	},
-	// 	abnormal: [firefox]
-	// },
-	// {
-	// 	interaction: [option, enter],
-	// 	browsers: {
-	// 		[chrome]: downloadTargetPage,
-	// 		[firefox]: nothing,
-	// 		[safari]: downloadTargetPage,
-	// 		[edge]: downloadTargetPage
-	// 	},
-	// 	abnormal: [firefox]
-	// },
-	// {
-	// 	interaction: [command, enter],
-	// 	browsers: {
-	// 		[chrome]: openBackgroundTab,
-	// 		[firefox]: openBackgroundTab,
-	// 		[safari]: openBackgroundTab,
-	// 		[edge]: openBackgroundTab
-	// 	}
-	// },
-	// {
-	// 	interaction: [shift, '<kbd>F10</kbd>'],
-	// 	browsers: {
-	// 		[chrome]: nothing,
-	// 		[firefox]: nothing,
-	// 		[safari]: nothing,
-	// 		[edge]: openContextMenu
-	// 	},
-	// 	abnormal: [edge]
-	// },
 	{
 		interaction: ['Dragging to address bar'],
 		browsers: {
@@ -216,8 +118,7 @@ const interactions = [
 			[chrome]: openNewTab,
 			[firefox]: openBackgroundTab,
 			[edge]: openNewTab
-		},
-		abnormal: [safari]
+		}
 	}
 ];
 
