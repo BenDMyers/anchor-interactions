@@ -23,6 +23,7 @@
 	--table-header-color: var(--indigo-3);
 	--row-hover-color: var(--indigo-2);
 	--abnormal-cell-color: var(--red-3);
+	--link-color: var(--blue-6);
 
 	@media (prefers-color-scheme: dark) {
 		--page-bg: var(--gray-9);
@@ -34,6 +35,7 @@
 		--table-header-color: var(--violet-12);
 		--row-hover-color: var(--gray-8);
 		--abnormal-cell-color: var(--pink-12);
+		--link-color: var(--blue-5);
 
 		tr:hover {
 			--abnormal-cell-color: var(--pink-11);
@@ -54,6 +56,7 @@ header {
 	// max-inline-size: var(--size-content-3);
 	text-align: center;
 	margin-inline: auto;
+	margin-block-end: var(--size-fluid-2);
 }
 
 main {
@@ -122,4 +125,18 @@ table {
 section {
 	margin-block-end: var(--size-fluid-5);
 	margin-inline: var(--size-fluid-2);
+}
+
+a {
+	color: var(--link-color);
+	text-decoration-thickness: from-font;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: 2px solid var(--link-color);
+		outline-offset: 4px;
+	}
 }
