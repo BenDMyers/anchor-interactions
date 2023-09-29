@@ -144,3 +144,7 @@ a {
 	outline: 2px solid var(--link-color);
 	outline-offset: 4px;
 }
+
+body:not([data-show-highlights]) .abnormal span {
+	display: none;
+}
