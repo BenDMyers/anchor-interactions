@@ -12,36 +12,60 @@
 	</header>
 	<main>
 		<section id="macos" aria-labelledby="macos-caption">
-			<table>
-				<caption id="macos-caption">macOS Browsers</caption>
-				<thead>
-					<tr>
-						<th scope="col">Interaction</th>
-						{% for browser in macos.browserHeadings %}
-						<th scope="col">{{ browser }}</th>
+			<div class="wrapper">
+				<table>
+					<caption id="macos-caption">macOS Browsers</caption>
+					<thead>
+						<tr>
+							<th scope="col">Interaction</th>
+							{% for browser in macos.browserHeadings %}
+							<th scope="col">{{ browser }}</th>
+							{% endfor %}
+						</tr>
+					</thead>
+					<tbody>
+						{% for interaction in macos.interactions %}
+						<tr>
+							<th scope="row">
+								{{ interaction.interaction | join: '+' }}
+							</th>
+							{% for browser in macos.browserHeadings %}
+							{% assign abnormal = false %}
+							{% if interaction.abnormal and interaction.abnormal contains browser %}
+							{% assign abnormal = true %}
+							{% endif %}
+							<td {% if abnormal %}class="abnormal"{% endif %}>
+								{{ interaction.browsers[browser] }} {% if abnormal %}<span class="visually-hidden">(deviates)</span>{% endif %}
+							</td>
+							{% endfor %}
+						</tr>
 						{% endfor %}
-					</tr>
-				</thead>
-				<tbody>
-					{% for interaction in macos.interactions %}
-					<tr>
-						<th scope="row">
-							{{ interaction.interaction | join: '+' }}
-						</th>
-						{% for browser in macos.browserHeadings %}
-						{% assign abnormal = false %}
-						{% if interaction.abnormal and interaction.abnormal contains browser %}
-						{% assign abnormal = true %}
-						{% endif %}
-						<td {% if abnormal %}class="abnormal"{% endif %}>
-							{{ interaction.browsers[browser] }} {% if abnormal %}<span class="visually-hidden">(deviates)</span>{% endif %}
-						</td>
-						{% endfor %}
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</div>
 		</section>
 	</main>
+
+	<script>
+		function handleWrapperScroll() {
+			const wrappers = document.querySelectorAll('.wrapper');
+			console.log({wrappers});
+			wrappers.forEach(wrapper => {
+				const table = wrapper.querySelector('table');
+				if (wrapper.clientWidth < table.clientWidth) {
+					wrapper.tabIndex = 0;
+					wrapper.setAttribute('role', group);
+					wrapper.setAttribute('aria-label', 'Horizontally scrollable region');
+				} else {
+					wrapper.removeAttribute('tabindex');
+					wrapper.removeAttribute('role');
+					wrapper.removeAttribute('aria-label');
+				}
+			});
+		}
+
+		window.addEventListener('resize', handleWrapperScroll);
+		handleWrapperScroll();
+	</script>
 </body>
 </html>

@@ -68,10 +68,21 @@ kbd, code {
 	margin-inline: var(--size-1);
 }
 
+.wrapper {
+	overflow-x: auto;
+	min-width: 30ch;
+	width: 100%;
+
+	&:focus-visible {
+		outline: 1px solid var(--blue-2);
+	}
+}
+
 table {
 	border-collapse: collapse;
 	border: var(--table-border);
 	width: 100%;
+	// overflow-x: auto;
 
 	th, td {
 		border: var(--table-border);
