@@ -5,3 +5,6 @@ yarn.lock
 
 # Eleventy
 _site/
+
+# Local Netlify folder
+.netlify
