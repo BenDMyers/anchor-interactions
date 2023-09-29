@@ -10,10 +10,15 @@
 	<meta property="og:image" content="{{ openGraphImage }}" />
 	<meta name="theme-color" content="#4C1074" />
 </head>
-<body>
+<body data-show-highlights="true">
 	<header>
 		<h1>Anchor Tag Interactions Across Browsers</h1>
 		<p>How an <code>&lt;a href&gt;</code> behaves across browsers with various clicks and modifiers. Assembled by <a rel="me" href="https://benmyers.dev/">Ben Myers</a>.</p>
+		<p>
+			<input type="checkbox" id="show-deviations" name="show-deviations" checked />
+			<label for="show-deviations">Highlight deviating behaviors in red and italics?</label>
+		</p>
+		<p><small style="font-style: italic">Notice something wrong? Please feel free to <a href="https://a11y.info/@ben">let me know</a> or <a href="https://github.com/BenDMyers/anchor-interactions">contribute a fix</a>!</small></p>
 	</header>
 	<main>
 		<section id="macos" aria-labelledby="macos-caption">
@@ -104,6 +109,15 @@
 
 		window.addEventListener('resize', handleWrapperScroll);
 		handleWrapperScroll();
+
+		const highlightToggle = document.querySelector('[type="checkbox"]');
+		highlightToggle.addEventListener('change', (event) => {
+			if (event.target.checked) {
+				document.body.setAttribute('data-show-highlights', 'true');
+			} else {
+				document.body.removeAttribute('data-show-highlights');
+			}
+		});
 	</script>
 </body>
 </html>
