@@ -7,10 +7,10 @@ const option = '<kbd>Opt</kbd>';
 const rightClick = '<code>Right Click</code>';
 const shift = '<kbd>Shift</kbd>';
 
-const chrome = 'Chrome';
-const edge = 'Edge';
-const firefox = 'Firefox';
-const safari = 'Safari';
+const chrome = 'Chrome 117';
+const edge = 'Edge 117';
+const firefox = 'Firefox 118';
+const safari = 'Safari 17';
 
 const downloadTargetPage = 'Download target page';
 const nothing = 'Nothing';
@@ -180,10 +180,10 @@ module.exports = {
 
 /**
  * @typedef {object} BrowserMap
- * @property {string} Chrome
+ * @property {string} `Chrome 117`
  * @property {string} Edge
  * @property {string} Firefox
- * @property {string} Safari
+ * @property {string} `Safari 17`
  */
 
 /**
