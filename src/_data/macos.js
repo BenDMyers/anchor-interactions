@@ -181,8 +181,8 @@ module.exports = {
 /**
  * @typedef {object} BrowserMap
  * @property {string} `Chrome 117`
- * @property {string} Edge
- * @property {string} Firefox
+ * @property {string} `Edge 117`
+ * @property {string} `Firefox 118`
  * @property {string} `Safari 17`
  */
 
