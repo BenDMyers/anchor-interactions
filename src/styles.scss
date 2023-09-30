@@ -108,6 +108,7 @@ table {
 		[data-show-highlights] &.abnormal {
 			background-color: var(--abnormal-cell-color);
 			font-style: italic;
+			font-weight: bold;
 		}
 	}
 
